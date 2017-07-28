@@ -15,6 +15,7 @@ class HtmlParser(object):
 
     def _get_name(self,page_url,soup):
         return soup.find('title').get_text()
+    
     def _get_new_data(self, page_url, soup):
         res_datas =[]
         trs = soup.find('table', class_= "li-admissionLine").find("tbody").findAll("tr")
