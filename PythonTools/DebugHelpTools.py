@@ -11,20 +11,26 @@ def dictprintformatC(dictdata):                      #dict转str
     var = json.dumps(dictdata, encoding="UTF-8", sort_keys=True,indent=4,ensure_ascii=False)  
     print var
     
-def dictprintC(dictdata):                      #dict转str
+def dictprintC(dictdata,weatherprint = True):                      #dict转str
     var = json.dumps(dictdata, encoding="UTF-8", sort_keys=True,ensure_ascii=False)  
-    print var
-    
-def dictprintformatCR(dictdata):                      #dict转str
-    var = json.dumps(dictdata, encoding="UTF-8", sort_keys=True,indent=4,ensure_ascii=False)  
+    if weatherprint == True:
+        print var
     return var
     
-def listprintC(listdata):             #list转str
+def listprintC(listdata,sourcecharset="UTF-8",weatherprint = True):             #list转str
     var = ""
     for key in listdata:
-        var += key   
-    print var
-    
+        var += key
+        var += " "
+   # typeprint(var)
+    #print var.decode("GBK")
+  #  typeprint(var.decode("GBK"))
+    #typeprint(var.decode("UTF-8").decode("GBK"))
+    var = var.decode(sourcecharset)
+    if weatherprint == True:
+        print var
+    return var
+
 def head(instr,linenumber = 5):
     strline = instr.split("\n")
     var = ""
